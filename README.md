@@ -130,7 +130,7 @@ Before starting automation:
 
 ```text
 
-project/
+enderplan-automation/
 │
 ├── gui.py
 ├── main.py
