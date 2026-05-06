@@ -85,7 +85,7 @@ This improves resilience against:
 
 # Project Structure
 
-```text
+
 project/
 │
 ├── gui.py
@@ -128,10 +128,14 @@ Before starting automation:
 
 ---
 
-## GUI
+## Image
 
 ![GUI](images/gui.png)
-![GUI](images/login.png)
-![GUI](images/first_page.png)
-![GUI](images/start_automation.png)
-![GUI](images/output.png)
+
+![Login](images/login.png)
+
+![First Page](images/first_page.png)
+
+![Start Automation](images/start_automation.png)
+
+![Output](images/output.png)
