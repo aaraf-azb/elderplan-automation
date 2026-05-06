@@ -83,21 +83,6 @@ This improves resilience against:
 
 ---
 
-# Project Structure
-
-
-project/
-│
-├── gui.py
-├── main.py
-├── search.py
-├── result.py
-├── setup.py
-├── save_csv.py
-├── README.md
-
-
----
 
 # Portal Navigation
 
@@ -139,3 +124,21 @@ Before starting automation:
 ![Start Automation](images/start_automation.png)
 
 ![Output](images/output.png)
+
+
+# Project Structure
+
+```text
+
+project/
+│
+├── gui.py
+├── main.py
+├── search.py
+├── result.py
+├── setup.py
+├── save_csv.py
+├── README.md
+
+```
+---
