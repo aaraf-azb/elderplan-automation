@@ -95,3 +95,43 @@ project/
 ├── setup.py
 ├── save_csv.py
 ├── README.md
+
+
+---
+
+# Portal Navigation
+
+Before starting automation:
+
+1. Login to Elderplan portal
+2. Open "View Member Info" page
+3. Keep the tab open
+4. Start automation from GUI
+
+---
+
+# Expected Workflow
+
+1. Launch the application
+2. Select input CSV file
+3. Select output folder
+4. Click **Start**
+5. Microsoft Edge launches automatically
+6. Login to the Elderplan portal
+7. Navigate to the automation start interface/tab
+8. Click **Start** again from the GUI
+9. Automation detects the portal automatically
+10. Claim processing begins
+11. Monitor live progress and logs from the GUI
+12. Automation completes processing
+13. Output CSV is generated
+
+---
+
+## GUI
+
+![GUI](images/gui.png)
+![GUI](images/login.png)
+![GUI](images/first_page.png)
+![GUI](images/start_automation.png)
+![GUI](images/output.png)
