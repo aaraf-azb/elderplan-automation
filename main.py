@@ -137,7 +137,7 @@ def run(
         # enumerate for progress + stop support
         for i, row in enumerate(data, start=1):
 
-            log(f"📄 Processing CSV Row: " f"{row['CSV Row Number']}")
+            log(f"📄 Processing CSV Row: " f"{row['Main CSV Row No.']}")
             log("\n----------------------------")
 
             # STOP BUTTON

@@ -91,7 +91,7 @@ class Setup:
 
                     continue
 
-                row["Row No. From Main File"] = idx
+                row["Main CSV Row No."] = idx
 
                 data.append(row)
 
