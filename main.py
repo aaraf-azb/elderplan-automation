@@ -215,6 +215,7 @@ def run(
             # ============================================================
 
             invoice_cache[invoice_no] = result
+            row["Automation Status"] = "DONE"
             saver.save_row({**row, **result})
             saver.mark_row_done(invoice_no)
 
