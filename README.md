@@ -5,13 +5,13 @@
 Elderplan Claim Automation is a Python + Playwright based healthcare automation framework designed to automate claim lookup and extraction from the Elderplan portal.
 
 The automation supports:
-- Automated claim searching
-- Claim detail extraction
-- CSV output generation
-- GUI-based execution
-- Auto resume capability
-- Retry logic with jitter
-- Real-time logging and progress tracking
+- Automated claim searching.
+- Claim detail extraction.
+- CSV output generation.
+- GUI-based execution.
+- Auto resume capability.
+- Retry logic with jitter.
+- Real-time logging and progress tracking.
 
 The project is designed to improve operational efficiency, reduce repetitive manual work, and provide resilient healthcare portal automation.
 
@@ -20,20 +20,20 @@ The project is designed to improve operational efficiency, reduce repetitive man
 # Core Features
 
 ## Claim Automation
-- Automated claim lookup using Member ID and DOS
-- Multi-claim extraction support
-- Denial reason extraction
-- Aggregated claim result handling
+- Automated claim lookup using Member ID and DOS.
+- Multi-claim extraction support.
+- Denial reason extraction.
+- Aggregated claim result handling.
 
 ---
 
 ## GUI Application
-- CSV file selection
-- Output folder selection
-- Entry size control
-- Live logging window
-- Progress tracking
-- Stop button support
+- CSV file selection.
+- Output folder selection.
+- Entry size control.
+- Live logging window.
+- Progress tracking.
+- Stop button support.
 
 ---
 
@@ -41,10 +41,10 @@ The project is designed to improve operational efficiency, reduce repetitive man
 The automation supports resumable execution.
 
 Features:
-- Automatically creates `Automation Status` column
-- Marks completed rows as `DONE`
-- Skips completed rows during rerun
-- Continues processing remaining rows automatically
+- Automatically creates the `Automation Status` column.
+- Marks completed rows as `DONE`.
+- Skips completed rows during rerun.
+- Continues processing remaining rows automatically.
 
 ---
 
@@ -52,14 +52,14 @@ Features:
 The automation includes retry protection for unstable portal behavior.
 
 Features:
-- Automatic retry attempts
-- Randomized retry delay (jitter)
-- Graceful fallback handling
+- Automatic retry attempts.
+- Randomized retry delay (jitter).
+- Graceful fallback handling.
 
 This improves resilience against:
-- Temporary portal failures
-- Delayed page loads
-- Intermittent timeouts
+- Temporary portal failures.
+- Delayed page loads.
+- Intermittent timeouts.
 
 ---
 
@@ -88,43 +88,88 @@ This improves resilience against:
 
 Before starting automation:
 
-1. Login to Elderplan portal
-2. Open "View Member Info" page
-3. Keep the tab open
-4. Start automation from GUI
+1. Login to the Elderplan portal.
+2. Open the "View Member Info" page.
+3. Keep the tab open.
+4. Start automation from the GUI.
 
 ---
 
 # Expected Workflow
 
-1. Launch the application
-2. Select input CSV file
-3. Select output folder
-4. Click **Start**
-5. Microsoft Edge launches automatically
-6. Login to the Elderplan portal
-7. Navigate to the automation start interface/tab
-8. Click **Start** again from the GUI
-9. Automation detects the portal automatically
-10. Claim processing begins
-11. Monitor live progress and logs from the GUI
-12. Automation completes processing
-13. Output CSV is generated
+1. Launch the application.
+2. Select input CSV file.
+3. Select output folder.
+4. Click **Start** to begin automation.
+5. Automation checks if Microsoft Edge with CDP connection is already open and the portal is logged in with the claims search interface active,
+   - If yes, automation connects to the existing browser session.
+   - If no, Microsoft Edge launches automatically and the user logs in to the Elderplan portal.
+6. Navigate to the claims search interface/tab if not already open.
+7. Click **Start** again from the GUI to resume automation.
+8. Automation detects the portal automatically.
+9. Claim processing begins.
+10. Monitor live progress and logs from the GUI.
+11. Automation completes processing.
+12. Output CSV is generated.
 
 ---
 
-## Image
+# Workflow Diagram
 
-![GUI](images/gui.png)
+```text
++-------------------+
+| Launch GUI        |
++-------------------+
+          |
+          v
++-------------------+
+| Select CSV/Input  |
++-------------------+
+          |
+          v
++-------------------+
+| Start Automation  |
++-------------------+
+          |
+          v
++------------------------------------------------------+ 
+| Is Edge Browser with CDP Connected & Portal Logged In|
+| with Claims Search Interface Active?                  |  <-- Decision node
++------------------------------------------------------+ 
+         |                              |
+         | Yes                          | No
+         v                              v
++-------------------+            +-------------------+
+| Portal Detection  |            | Launch Edge       |
++-------------------+            +-------------------+
+         |                              |
+         v                              v
++-------------------+            +-------------------+
+| Claim Processing  |            | Login to Portal   |
++-------------------+            +-------------------+
+         |                              |
+         v                              v
++-------------------+            +-------------------+
+| Save CSV Output   |            | Portal Detection  |
++-------------------+            +-------------------+
+         |                              |
+         |                              v
+         |                       +-------------------+
+         |                       | Claim Processing  |
+         |                       +-------------------+
+         |                              |
+         v                              v
++-------------------+            +-------------------+
+| Automation Done   |            | Save CSV Output   |
++-------------------+            +-------------------+
+                                    |
+                                    v
+                           +-------------------+
+                           | Automation Done   |
+                           +-------------------+
+```
 
-![Login](images/login.png)
-
-![First Page](images/first_page.png)
-
-![Start Automation](images/start_automation.png)
-
-![Output](images/output.png)
-
+---
 
 # Project Structure
 
@@ -142,3 +187,15 @@ enderplan-automation/
 
 ```
 ---
+
+## Image
+
+![GUI](images/gui.png)
+
+![Login](images/login.png)
+
+![First Page](images/first_page.png)
+
+![Start Automation](images/start_automation.png)
+
+![Output](images/output.png)
