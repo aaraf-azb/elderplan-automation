@@ -115,16 +115,33 @@ def run(
                 page = pg
                 break
 
-        while not page:
-            log("⌛ Waiting for portal login...")
+        waited_for_login = False
+        wait_attempts = 0
+        max_wait_attempts = 40  # 40 * 15s = 10 minutes
+
+        while not page and wait_attempts < max_wait_attempts:
+
+            if stop_flag and stop_flag.get("stop"):
+                log("⛔ Waiting stopped by user")
+                return
+
+            if not waited_for_login:
+                log("⌛ Waiting for portal login...")
+                waited_for_login = True
 
             time.sleep(15)
+            wait_attempts += 1
+
             context = browser.contexts[0]
             for pg in context.pages:
                 if "epportal.mjhs.org" in pg.url:
                     log(f"🌐 Current Tab: {pg.url}")
                     page = pg
                     break
+
+        if not page:
+            log("❌ Timeout waiting for portal login. Please login and restart automation.")
+            return
 
         page.wait_for_load_state("domcontentloaded")
         log(f"✅ Attached to: {page.url}")
