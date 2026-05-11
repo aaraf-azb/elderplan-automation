@@ -220,8 +220,7 @@ The output CSV will contain enriched rows with these extracted columns for each 
 ## Notes
 
 - Ensure the input CSV is closed in other applications during automation.
-- Login to the portal manually first and keep the claims search interface tab active.
-- The automation connects to the browser tab for query execution.
-- Supports resumable execution by skipping already done rows.
+- Before starting automation, please manually log in to the Elderplan portal using Microsoft Edge with CDP connection and keep the claims search interface tab open and active. This one-time manual login is needed to set up the browser session so the automation can run smoothly.
+
 
 ---
