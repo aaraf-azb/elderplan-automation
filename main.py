@@ -159,6 +159,7 @@ def run(
 
             if invoice_no in invoice_cache:
                 log(f"⚡ Skipping invoice {invoice_no} (cached)")
+                row["Automation Status"] = "DONE"
                 saver.save_row({**row, **invoice_cache[invoice_no]})
                 continue
 
