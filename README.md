@@ -199,3 +199,29 @@ enderplan-automation/
 ![Start Automation](images/start_automation.png)
 
 ![Output](images/output.png)
+
+---
+
+## Output
+
+The output CSV will contain enriched rows with these extracted columns for each claim:
+
+- Automation Status
+- Main CSV Row No.
+- Claim ID/TRN
+- Check Number
+- Status (Complete/In Process)
+- Billed Amount
+- Paid Amount
+- Denial Reason (Decline reason if any)
+
+---
+
+## Notes
+
+- Ensure the input CSV is closed in other applications during automation.
+- Login to the portal manually first and keep the claims search interface tab active.
+- The automation connects to the browser tab for query execution.
+- Supports resumable execution by skipping already done rows.
+
+---
